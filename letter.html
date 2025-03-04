@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Monthsary!</title>
+    <link rel="stylesheet" href="fonts/fonts.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(243, 189, 198);
+            background-image: url("https://i.pinimg.com/originals/b1/58/f4/b158f4cc0584572b4cdab742ef9bf7c0.gif");
+            background-repeat: no-repeat;
+            background-size: cover;
+            overflow: hidden;
+        }
+
+        .book-container {
+            position: relative;
+            width: 85vw;
+            height: 67vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            perspective: 1500px;
+        }
+
+        .book {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            border: 2px solid sienna;
+            background-image: url("bg.png");
+            background-size: cover;
+            transform-style: preserve-3d;
+        }
+
+        .page {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: white;
+            display: flex;
+            border: 1px solid sienna;
+            transform-origin: left;
+            transition: transform 1s ease-in-out;
+            backface-visibility: hidden;
+        }
+
+        .flipped {
+            transform: rotateY(-180deg);
+        }
+
+        .page:nth-child(1) {
+            z-index: 5;
+            background-image: url(bg.png);
+            background-size: 100% 100%;
+        }
+
+        .page:nth-child(2) {
+            z-index: 4;
+            background-image: url("https://i.pinimg.com/736x/98/95/f2/9895f23f2539ee9593e7492c7331b78a.jpg");
+            background-size: cover;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 10%;
+
+            .content {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: 20px;
+                text-align: center;
+                font-family: 'galter', monospace;
+                word-spacing: 3px;
+
+                span {
+                    font-family: 'skrine', monospace;
+                    margin-bottom: 10px;
+                    font-size: 30px;
+                    color: rgb(214, 72, 167);
+                }
+            }
+        }
+
+        .page:nth-child(3) {
+            z-index: 3;
+            flex-direction: column;
+            align-items: center;
+            background-image: url("https://i.pinimg.com/736x/98/95/f2/9895f23f2539ee9593e7492c7331b78a.jpg");
+            background-size: cover;
+
+            .content {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                font-family: 'galter', monospace;
+                word-spacing: 3px;
+                font-size: 15px;
+                padding: 10px 20px 0px 20px;
+
+                span {
+                    font-family: 'Ytail', monospace;
+                    font-size: 20px;
+                    color: rgb(214, 72, 167);
+                }
+            }
+        }
+
+
+        .page:nth-child(4) {
+            z-index: 2;
+            flex-direction: column;
+            background-image: url("https://i.pinimg.com/736x/98/95/f2/9895f23f2539ee9593e7492c7331b78a.jpg");
+            background-size: cover;
+            padding-top: 3%;
+
+            img {
+                align-self: center;
+            }
+
+            .content {
+                display: flex;
+                flex-direction: column;
+                font-family: 'galter', monospace;
+                word-spacing: 3px;
+                padding-top: 20px;
+                padding-left: 10px;
+                padding-right: 10px;
+
+                span {
+                    font-family: 'galter', monospace;
+                    font-size: 20px;
+                    font-weight: bold;
+                    color: rgb(0, 0, 0);
+                }
+            }
+        }
+
+        .page:nth-child(5) {
+            z-index: 1;
+            flex-direction: column;
+            align-items: center;
+            background-image: url("https://i.pinimg.com/736x/98/95/f2/9895f23f2539ee9593e7492c7331b78a.jpg");
+            background-size: cover;
+
+            .content {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                font-family: 'galter', monospace;
+                word-spacing: 3px;
+                padding: 20px;
+
+                span {
+                    font-family: 'Ytail', monospace;
+                    font-size: 20px;
+                    color: rgb(214, 72, 167);
+                }
+            }
+        }
+
+        .page:nth-child(6) {
+            z-index: -1;
+            flex-direction: column;
+            align-items: center;
+            background-image: url("https://i.pinimg.com/736x/98/95/f2/9895f23f2539ee9593e7492c7331b78a.jpg");
+            background-size: cover;
+
+            .content {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                font-family: 'galter', monospace;
+                word-spacing: 3px;
+                padding: 20px 20px 0px 20px;
+
+                span {
+                    font-family: 'Ytail', monospace;
+                    font-size: 20px;
+                    color: rgb(214, 72, 167);
+                }
+            }
+        }
+
+        .page:nth-child(7) {
+            z-index: -2;
+            flex-direction: column;
+            align-items: center;
+            background-image: url("https://i.pinimg.com/736x/98/95/f2/9895f23f2539ee9593e7492c7331b78a.jpg");
+            background-size: cover;
+            padding-top: 10%;
+
+            .content {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                font-family: 'galter', monospace;
+                word-spacing: 3px;
+                padding: 20px;
+            }
+        }
+
+        .page:nth-child(8) {
+            z-index: -3;
+            flex-direction: column;
+            align-items: center;
+            background-image: url("https://i.pinimg.com/736x/98/95/f2/9895f23f2539ee9593e7492c7331b78a.jpg");
+            background-size: cover;
+            padding-top: 5%;
+
+            .content {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                font-family: 'galter', monospace;
+                word-spacing: 3px;
+                padding: 5px 20px 20px 20px;
+            }
+        }
+
+        .page:nth-child(9) {
+            z-index: -4;
+            flex-direction: column;
+            align-items: center;
+            background-image: url("https://i.pinimg.com/736x/98/95/f2/9895f23f2539ee9593e7492c7331b78a.jpg");
+            background-size: cover;
+            padding-top: 10%;
+
+            .content {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                font-family: 'galter', monospace;
+                word-spacing: 3px;
+                padding: 20px;
+
+                span {
+                    font-family: 'Ytail', monospace;
+                }
+            }
+        }
+        .page:nth-child(10) {
+            z-index: -5;
+            flex-direction: column;
+            align-items: center;
+            background-image: url("https://i.pinimg.com/736x/98/95/f2/9895f23f2539ee9593e7492c7331b78a.jpg");
+            background-size: cover;
+            padding-top: 10%;
+
+            .content {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                font-family: 'galter', monospace;
+                word-spacing: 3px;
+                padding: 20px;
+
+                span {
+                    font-family: 'Ytail', monospace;
+                }
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="book-container" onclick="flipBook(event)">
+        <div class="book" id="book">
+            <!--Cover-->
+            <div class="page"></div>
+
+            <!--Page 1-->
+            <div class="page">
+                <img src="pic6.jpg" alt="" height="165px" width="250px">
+                <div class="content">
+                    <span>Happy monthsary LOVE!!!!</span>Happy monthsary love!! Maraming Salamat po sa pagtitiis sakin
+                    ng 1 year and 2 months sana patuloy mo pa rin akong mahalin love kahit kung minsan ang dami kong
+                    nagagawang kasalanan sayo, sana mapatawad mo ko love kung minsan napagsasalitaan kita ng >>
+                </div>
+            </div>
+
+            <!--Page 2-->
+            <div class="page">
+                <div class="content">
+                    masasakit na salita, nasasaktan lang kasi ako kaya minsan nadadala na ng emosyon so sana mapatawad
+                    mo ko love. At kung minsan nagseselos ka dahil sa mga nasa paligid ko lagi mong tandaan na ikaw at
+                    ikaw lang ang mamahalin ko wala ng iba. Also thank you rin dahil dumating ka sa buhay ko isa ka sa nagpabago sakin love mahal na mahal po kita. <br><span>I LOVEEE YOUU SOO MUCHHH LOVEEE!!!!! </span>
+                </div>
+                <img src="pic2.jpg" alt="" height="165px" width="250px">
+            </div>
+
+            <!--Page 3-->
+            <div class="page">
+                <img src="pic7.jpg" alt="" height="165px" width="130px">
+                <div class="content">
+                    <span>Dear Aly,</span>
+                    HADHAHDHAD nux letter na letter de jk. Halu my beautiful babyyyyyy, ngayong birthday ko hiling ko
+                    lang sayo sana wag kana mainsecure dahil for me ikaw ang pinakamaganda sa buong mundo like frfr
+                    ganda ganda ng baby ko nayan eh sana maging mas confident kapa po sa sarili mo love ayun lang po.
+                    YOU'RE THE MOSTTT BEAUTIFULL GIRLL IN THE WORLDDD!!!!!!!!!
+                </div>
+            </div>
+
+            <!--Page 4-->
+            <div class="page">
+                <div class="content">
+                    HAHHDAHDAHADSHAHDAHHAHA sana rin matupad mo na pangarap mo maging doctor
+                </div>
+                <img src="pic9.jpg" alt="" height="300px" width="250px">
+            </div>
+
+            <!--Page 5-->
+            <div class="page">
+                <div class="content">
+                    Kamiss to so muchh, i miss you love imagine mo kung magkaklase tayo ganto tayo lagi
+                    HAHAHAHAHHAH<br>(wala na ko masabi sa letter eh)
+                </div>
+                <img src="pic10.jpg" alt="" height="320px" width="250px">
+            </div>
+
+            <!--Page 6-->
+            <div class="page">
+                <img src="pic11.jpg" alt="" height="200px" width="250px">
+                <div class="content">
+                    Takaw mo dito love HAHHAHAH nagustuhan rin yung waffle eh, kaya gusto ko na magkatrabaho para
+                    mabigay ko na tsaka mabili ko lahat ng gusto at cravings mo ackkkkkk sabay tayo lalamon
+                    HAHAHAHAHAHHA kupol yarn.
+                </div>
+            </div>
+
+            <!--Page 7-->
+            <div class="page">
+                <img src="pic12.jpg" alt="" height="270px" width="200px">
+                <div class="content">
+                    Angas ko sa pic na to love oh kala mo gengshter eh HADSHAHSDHADHAHAHD. I love you love nagiging
+                    masaya ako kapag ikaw ang kasama ko sana magstay ka lang sakin kahit na palagi tayo nagaaway mahal
+                    na mahal na mahal kita love.
+                </div>
+            </div>
+
+            <!--Page 7-->
+            <div class="page">
+                <img src="pic13.jpg" alt="" height="270px" width="200px">
+                <div class="content">
+                    nisss HAHHAHAH kabog tita, tito mong cool HAHAHAHHAHAHAHAH kupol outfits yarn HAHAHAHHAAHHA I
+                    LOVEEEE YOUUUUUU!!!!!!!<br><br><span>To be continued...</span>
+                </div>
+            </div>
+
+            <!--Page 8-->
+            <div class="page">
+            </div>
+        </div>
+    </div>
+    <audio id="flip" src="book.mp3"></audio>
+    <audio id="audio" src="song.mp3"></audio>
+    <script>
+        let currentPage = 0;
+        const pages = document.querySelectorAll(".page");
+
+        function flipBook(event) {
+            const bookWidth = event.currentTarget.offsetWidth;
+            const clickX = event.offsetX;
+
+            if (clickX > bookWidth / 2) {
+                // Clicked right side (flip forward)
+                if (currentPage < pages.length - 1) {
+                    pages[currentPage].classList.add("flipped");
+                    currentPage++;
+                    let flip = document.getElementById("flip");
+                flip.play();
+                }
+            } else {
+                // Clicked left side (flip backward)
+                if (currentPage > 0) {
+                    currentPage--;
+                    let flip = document.getElementById("flip");
+                flip.play();
+                    pages[currentPage].classList.remove("flipped");
+                    
+                }
+            } if (currentPage == 8) {
+                alert('Last page tap again for the flower ehehehe mwaaaaa')
+            }
+            else if (currentPage == 8) {
+                window.location.href = "flowers-for-someone-main/flower.html"
+            } else if (currentPage == 1) {
+                
+                let audio = document.getElementById("audio");
+                audio.volume = 0.2;
+                audio.play();
+            } else if (currentPage == 0){
+                audio.pause();
+            }
+        }
+    </script>
+</body>
+
+</html>

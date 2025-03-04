@@ -1,0 +1,22 @@
+@font-face {
+    font-family: 'Danymeka'; /* Name to use in CSS */
+    src: url('Danymeka-lxx2D.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Skrine'; /* Name to use in CSS */
+    src: url('Skrine.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Ytail'; /* Name to use in CSS */
+    src: url('Yellowtail-Regular.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'serif'; /* Name to use in CSS */
+    src: url('LT.SerifDemo.otf') format('opentype');
+}
+@font-face {
+    font-family: 'galter'; /* Name to use in CSS */
+    src: url('Galter.otf') format('opentype');
+}
